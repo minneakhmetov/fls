@@ -1,0 +1,156 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 11.1
+-- Dumped by pg_dump version 11.1
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: auth; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.auth (
+    user_login text NOT NULL,
+    token text NOT NULL
+);
+
+
+ALTER TABLE public.auth OWNER TO postgres;
+
+--
+-- Name: user_profile; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.user_profile (
+    login text NOT NULL,
+    password text NOT NULL,
+    last_update_date timestamp without time zone
+);
+
+
+ALTER TABLE public.user_profile OWNER TO postgres;
+
+--
+-- Name: user_update; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.user_update (
+    user_login text NOT NULL,
+    last_update_date timestamp without time zone NOT NULL,
+    user_action text NOT NULL
+);
+
+
+ALTER TABLE public.user_update OWNER TO postgres;
+
+--
+-- Data for Name: auth; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.auth (user_login, token) FROM stdin;
+razil	ecffe0bb-50ef-4d7a-acc9-1e6e4e58482f
+razil1	b16685bf-8ee8-49e7-8036-724c1cfa4c33
+70934f25f8	b59314e0-229a-4bf8-9867-828e7827e053
+a3c3a17ab0	af22655d-50ae-45f8-a94b-51495de92ea3
+4fb9a33416	afd6baf3-13b8-4331-af5f-49dd8bbedf7b
+0d9f2c6719	c5fd7482-42ad-419b-a747-76199a4909f0
+c06baeca45	238301d4-dc8a-45ac-9ea5-f0742a5af8bd
+6e43e8ab9a	fcd1406c-1a59-4a1f-bd8a-936222c530c0
+46cbcc8b25	4b4e62d2-23df-4f87-8599-e882525ed920
+35dcceb421	a5adeebd-b944-4974-a949-3cda9856a245
+048e4a03e9	62067491-0bf5-4725-a2ba-81800a2baf90
+73a3caf7fc	f4a4592a-3b8f-4ea6-bc93-cc01af076632
+3b02ca9c77	fcc5de1b-1340-40db-9bb2-bb2e41772169
+\.
+
+
+--
+-- Data for Name: user_profile; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.user_profile (login, password, last_update_date) FROM stdin;
+razil1	$2a$10$LsYjLeq6jsN7fQ/UES8aS.WHM6S2OomYS5KqDlz/EFiRRiAipCaLq	2019-05-19 22:31:36.430998
+razil	$2a$10$DgfVVVTt.SRX9/Bko1EmuuNCoBUceQORoLRmHhOto67I640FVJ54y	2019-05-19 23:46:57.7405
+70934f25f8	$2a$10$QSL1EiJELUerGBaPNhnLoOCxr5PSRthOV7E8XYKtlTp8asvLXZDkW	2019-05-20 11:40:24.247782
+a3c3a17ab0	$2a$10$lsGqMUT2cnijM914fWYeAOFXChgyoCx2sJ/XwGR/7AQh4mtpZSUze	2019-05-20 11:41:32.119222
+4fb9a33416	$2a$10$oejnwjqKAIuTXQpwKb1MO.vVBR8cv.mu/M5LSDs6WGARoUZEXUGP2	2019-05-20 11:42:44.727992
+0d9f2c6719	$2a$10$FXKbtiwF5Zuj26kRWFsLhem7b4Z/beYRFXAVTZ3.GnQ2OhzZcaSTS	2019-05-20 11:48:56.660062
+c06baeca45	$2a$10$TFLCrGlKniGB135AnPD3MO68Wz1dx6ugp9P0eAslMo59Aee3SQ8ZC	2019-05-20 12:08:00.011953
+6e43e8ab9a	$2a$10$qEB.sIvjMIxW/.uKGBJnUuWfUD8kI4Z9VxFFAfvo2zOLgVti2bzcm	2019-05-20 12:08:25.225506
+46cbcc8b25	$2a$10$9R1rN.JBzfl6A1UPhFoW1O7OzAYfZ4H51VK5DWPJearm6FdNPlPXm	2019-05-20 12:32:19.829962
+35dcceb421	$2a$10$y1F6OvEGzJ7RewIuu1NVSu9ghRAOP4Q1IffoxEL6uxGj341hfBy8i	2019-05-20 12:51:08.667672
+048e4a03e9	$2a$10$BUCu9lA9osZCGWk9XcjksOz//aUYmEjWtBaplKU2WCpC1GoUUBSRK	2019-05-20 16:15:57.876515
+73a3caf7fc	$2a$10$CCX33gbcPl6gFCx0i9qRK.6y8EIBcWDDgaWZCA9NYvV3Cx2H.CyMK	2019-05-20 16:16:41.993498
+3b02ca9c77	$2a$10$fgT3OpsW8AH3rDVggx9hieiHYamJaENW3C.YoEYDoUO0OXkPgbzW2	2019-05-20 16:40:53.058673
+\.
+
+
+--
+-- Data for Name: user_update; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.user_update (user_login, last_update_date, user_action) FROM stdin;
+razil	2019-05-19 22:28:58.418995	PROFILE_CREATED
+razil1	2019-05-19 22:31:36.430998	PROFILE_CREATED
+razil	2019-05-19 22:33:44.089928	LOGIN
+razil	2019-05-19 23:46:23.794528	CHANGED_PASSWORD
+razil	2019-05-19 23:46:57.7405	CHANGED_PASSWORD
+70934f25f8	2019-05-20 11:40:24.247782	PROFILE_CREATED
+a3c3a17ab0	2019-05-20 11:41:32.119222	PROFILE_CREATED
+4fb9a33416	2019-05-20 11:42:44.727992	PROFILE_CREATED
+0d9f2c6719	2019-05-20 11:48:56.660062	PROFILE_CREATED
+c06baeca45	2019-05-20 12:08:00.011953	PROFILE_CREATED
+6e43e8ab9a	2019-05-20 12:08:25.225506	PROFILE_CREATED
+46cbcc8b25	2019-05-20 12:32:19.829962	PROFILE_CREATED
+35dcceb421	2019-05-20 12:51:08.667672	PROFILE_CREATED
+048e4a03e9	2019-05-20 16:15:57.371939	PROFILE_CREATED
+048e4a03e9	2019-05-20 16:15:57.876515	CHANGED_PASSWORD
+73a3caf7fc	2019-05-20 16:16:41.817967	PROFILE_CREATED
+73a3caf7fc	2019-05-20 16:16:41.993498	CHANGED_PASSWORD
+3b02ca9c77	2019-05-20 16:40:52.947464	PROFILE_CREATED
+3b02ca9c77	2019-05-20 16:40:53.058673	CHANGED_PASSWORD
+\.
+
+
+--
+-- Name: user_profile user_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_profile
+    ADD CONSTRAINT user_pk PRIMARY KEY (login);
+
+
+--
+-- Name: auth user_login_constraint; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth
+    ADD CONSTRAINT user_login_constraint FOREIGN KEY (user_login) REFERENCES public.user_profile(login) ON DELETE CASCADE;
+
+
+--
+-- Name: user_update user_login_constraint_update; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_update
+    ADD CONSTRAINT user_login_constraint_update FOREIGN KEY (user_login) REFERENCES public.user_profile(login) ON DELETE CASCADE;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
